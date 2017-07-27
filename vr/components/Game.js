@@ -1,7 +1,6 @@
 // React
 import React, { Component } from 'react';
 import {
-  StyleSheet,
   Text,
   View,
   VrButton
@@ -9,6 +8,9 @@ import {
 
 // Components
 import Question from './Question';
+
+// Libs
+import styles from '../styles/main';
 
 export default class Game extends Component {
   render() {
@@ -22,28 +24,3 @@ export default class Game extends Component {
     )
   }
 }
-
-// Styles
-const styles = StyleSheet.create({
-  gameStyle: {
-    transform: [
-      { translate: [-2.25, 0, 0] }
-    ]
-  },
-  text: {
-    fontSize: 0.2,
-    textAlign: 'center',
-    color: '#fff',
-    transform: [
-      {translate: [0, 2, -5]}
-    ]
-  },
-  gameOverText: {
-    fontSize: 0.2,
-    textAlign: 'center',
-    color: '#fff',
-    transform: [
-      {translate: [0, 0, -5]}
-    ]
-  }
-})

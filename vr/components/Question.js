@@ -1,14 +1,14 @@
 // React
 import React, { Component } from 'react';
 import {
-  View,
   Text,
-  VrButton,
-  StyleSheet
+  View,
+  VrButton
 } from 'react-vr';
 
 // Libs
 import { map } from 'lodash';
+import styles from '../styles/main';
 
 export default class Question extends Component {
   render() {
@@ -38,16 +38,3 @@ export default class Question extends Component {
     )
   }
 }
-
-// Styles
-const styles = StyleSheet.create({
-  questionBlock: {
-    fontSize: 0.5,
-    textAlign: 'center',
-    color: '#000',
-    backgroundColor: '#fff',
-    transform: [
-      {translate: [0, 1, -5]}
-    ]
-  }
-})
