@@ -1,3 +1,5 @@
+// @flow
+
 import {
   StyleSheet
 } from 'react-vr';
@@ -44,4 +46,4 @@ export default StyleSheet.create({
       {translate: [0, 1, -5]}
     ]
   }
-})
+});

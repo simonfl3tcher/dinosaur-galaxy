@@ -1,5 +1,7 @@
+// @flow
+
 // React
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {
   Text,
   View,
@@ -8,6 +10,7 @@ import {
 
 // Libs
 import { map } from 'lodash';
+import PropTypes from 'prop-types';
 import styles from '../styles/main';
 
 export default class Question extends Component {
@@ -30,11 +33,16 @@ export default class Question extends Component {
                     transform: [{translate: [0, 2, -5]}]
                   }}>{value}</Text>
                 </VrButton>
-              )
+              );
           })
         }
         <Text style={styles.questionBlock}>{this.props.question.question}</Text>
       </View>
-    )
+    );
   }
 }
+
+Question.propTypes = {
+  question: PropTypes.object,
+  pickAnswer: PropTypes.func
+};

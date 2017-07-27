@@ -1,13 +1,14 @@
+// @flow
+
+// React
 import React, { Component } from 'react';
 import {
   AsyncStorage,
-  AppRegistry,
-  Text,
-  View
+  AppRegistry
 } from 'react-vr';
 
 // Libs
-import { shuffle } from 'lodash'
+import { shuffle } from 'lodash';
 
 // Components
 import CompletedIt from './vr/components/CompletedIt';
@@ -18,6 +19,16 @@ import SplashScreen from './vr/components/SplashScreen';
 import questions from './data/questions.json';
 
 class ShapeGame extends Component {
+  // Flow Annotation
+  state: {
+    outstandingQuestions: Array<Object>,
+    question: Object,
+    score: number,
+    highestScore: number,
+    playingGame: boolean,
+    gameOver: boolean
+  };
+
   constructor() {
     super();
 
@@ -28,7 +39,7 @@ class ShapeGame extends Component {
       highestScore: 0,
       playingGame: false,
       gameOver: false
-    }
+    };
   }
 
   componentDidMount() {
@@ -48,7 +59,7 @@ class ShapeGame extends Component {
   }
 
   setNewGame() {
-    let outstandingQuestions = shuffle(this.state.outstandingQuestions)
+    let outstandingQuestions = shuffle(this.state.outstandingQuestions);
     let question = outstandingQuestions.pop();
     this.setState({
       question,
@@ -67,12 +78,12 @@ class ShapeGame extends Component {
           if(score > value) {
             AsyncStorage.setItem('highestScore', score);
           }
-        })
+        });
     } else {
       this.setState({
         playingGame: false,
         gameOver: true
-      })
+      });
     }
   }
 
@@ -80,7 +91,7 @@ class ShapeGame extends Component {
     if(!this.state.question) {
       return(
         <CompletedIt />
-      )
+      );
     } else if(this.state.playingGame){
       return (
         <Game
@@ -88,7 +99,7 @@ class ShapeGame extends Component {
           highestScore={this.state.highestScore}
           question={this.state.question}
           pickAnswer={this.pickAnswer.bind(this)} />
-      )
+      );
     } else {
       return(
         <SplashScreen
@@ -96,9 +107,9 @@ class ShapeGame extends Component {
           highestScore={this.state.highestScore}
           gameOver={this.state.gameOver}
           startNewGame={this.startNewGame.bind(this)} />
-      )
+      );
     }
   }
 }
 
-AppRegistry.registerComponent('ShapeGame', () => ShapeGame)
+AppRegistry.registerComponent('ShapeGame', () => ShapeGame);
