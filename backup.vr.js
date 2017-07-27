@@ -19,8 +19,7 @@ class ShapeGame extends Component {
       score: 0,
       highestScore: 0,
       specialIndex: 0,
-      playingGame: false,
-      gameOver: false
+      playingGame: true
     }
   }
 
@@ -70,10 +69,7 @@ class ShapeGame extends Component {
       this.setState({score: score});
       this.newGameSet();
     } else {
-      this.setState({
-        playingGame: false,
-        gameOver: true
-      })
+      this.setState({playingGame: false})
     }
   }
 
@@ -85,7 +81,7 @@ class ShapeGame extends Component {
   }
 
   render() {
-    if(this.state.playingGame){
+    if(this.state.playingGame) {
       return (
         <View style={styles.gameStyle}>
           <Text style={styles.text}>Find the odd shape!</Text>
@@ -111,13 +107,10 @@ class ShapeGame extends Component {
         </View>
       )
     } else {
-      return(
+      return (
         <View>
-          <SplashScreen
-            highestScore={this.state.highestScore}
-            score={this.state.score}
-            gameOver={this.state.gameOver}
-            startNewGame={this.startNewGame.bind(this)} />
+          <Text style={styles.gameOverText}>Game Over!</Text>
+          <Text style={styles.gameOverText}>Your score was: {this.state.score}</Text>
         </View>
       )
     }
