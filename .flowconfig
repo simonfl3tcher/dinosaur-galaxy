@@ -5,3 +5,6 @@
 
 [libs]
 ./interfaces/global.js
+
+[options]
+module.system=haste

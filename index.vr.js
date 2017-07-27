@@ -2,10 +2,7 @@
 
 // React
 import React, { Component } from 'react';
-import {
-  AsyncStorage,
-  AppRegistry
-} from 'react-vr';
+import { AsyncStorage, AppRegistry } from 'react-vr';
 
 // Libs
 import { shuffle } from 'lodash';
@@ -18,7 +15,7 @@ import SplashScreen from './vr/components/SplashScreen';
 // Data
 import questions from './data/questions.json';
 
-class ShapeGame extends Component {
+class VRsaurus extends Component {
   // Flow Annotation
   state: {
     outstandingQuestions: Array<Object>,
@@ -38,78 +35,81 @@ class ShapeGame extends Component {
       score: 0,
       highestScore: 0,
       playingGame: false,
-      gameOver: false
+      gameOver: false,
     };
   }
 
   componentDidMount() {
-    AsyncStorage.getItem('highestScore')
-      .then(value => {
-        this.setState({highestScore: value});
-      });
-  }
-
-  startNewGame() {
-    this.setState({
-      score: 0,
-      outstandingQuestions: questions,
-      playingGame: true,
-      gameOver: false
-    }, () => this.setNewGame());
-  }
-
-  setNewGame() {
-    let outstandingQuestions = shuffle(this.state.outstandingQuestions);
-    let question = outstandingQuestions.pop();
-    this.setState({
-      question,
-      outstandingQuestions
+    AsyncStorage.getItem('highestScore').then(value => {
+      this.setState({ highestScore: value });
     });
   }
 
-  pickAnswer(key) {
+  startNewGame() {
+    this.setState(
+      {
+        score: 0,
+        outstandingQuestions: questions,
+        playingGame: true,
+        gameOver: false,
+      },
+      () => this.setNewGame()
+    );
+  }
+
+  setNewGame() {
+    let outstandingQuestions: Array<Object> = shuffle(
+      this.state.outstandingQuestions
+    );
+    let question = outstandingQuestions.pop();
+    this.setState({
+      question,
+      outstandingQuestions,
+    });
+  }
+
+  pickAnswer(key: String) {
     let score = this.state.score;
-    if(this.state.question.answer === key) {
+    if (this.state.question.answer === key) {
       score++;
-      this.setState({score});
+      this.setState({ score });
       this.setNewGame();
-      AsyncStorage.getItem('highestScore')
-        .then(value => {
-          if(score > value) {
-            AsyncStorage.setItem('highestScore', score);
-          }
-        });
+      AsyncStorage.getItem('highestScore').then(value => {
+        if (score > value) {
+          AsyncStorage.setItem('highestScore', score);
+        }
+      });
     } else {
       this.setState({
         playingGame: false,
-        gameOver: true
+        gameOver: true,
       });
     }
   }
 
   render() {
-    if(!this.state.question) {
-      return(
-        <CompletedIt />
-      );
-    } else if(this.state.playingGame){
+    if (!this.state.question) {
+      return <CompletedIt />;
+    } else if (this.state.playingGame) {
       return (
         <Game
           score={this.state.score}
           highestScore={this.state.highestScore}
           question={this.state.question}
-          pickAnswer={this.pickAnswer.bind(this)} />
+          pickAnswer={this.pickAnswer.bind(this)}
+        />
       );
     } else {
-      return(
+      return (
         <SplashScreen
           score={this.state.score}
           highestScore={this.state.highestScore}
           gameOver={this.state.gameOver}
-          startNewGame={this.startNewGame.bind(this)} />
+          startNewGame={this.startNewGame.bind(this)}
+        />
       );
     }
   }
 }
 
-AppRegistry.registerComponent('ShapeGame', () => ShapeGame);
+AppRegistry.registerComponent('VRsaurus', () => VRsaurus);

@@ -2,10 +2,7 @@
 
 // React
 import React, { Component } from 'react';
-import {
-  Text,
-  View
-} from 'react-vr';
+import { Text, View } from 'react-vr';
 
 // Libs
 import styles from '../styles/main';

@@ -1,12 +1,8 @@
 // @flow
 
 // React
-import React, {Component} from 'react';
-import {
-  Text,
-  View,
-  VrButton,
-} from 'react-vr';
+import React, { Component } from 'react';
+import { Text, View, VrButton } from 'react-vr';
 
 // Libs
 import PropTypes from 'prop-types';
@@ -17,11 +13,14 @@ export default class GameOver extends Component {
     return (
       <View style={styles.gameStyle}>
         <Text style={styles.text}>Game Over!</Text>
-        <Text style={styles.text}>You scored: {this.props.score}</Text>
+        <Text style={styles.text}>
+          You scored: {this.props.score}
+        </Text>
 
         <VrButton
           style={styles.button}
-          onClick={()=> this.props.startNewGame()}>
+          onClick={() => this.props.startNewGame()}
+        >
           <Text style={styles.buttonText}>Play Game!</Text>
         </VrButton>
       </View>
@@ -31,5 +30,5 @@ export default class GameOver extends Component {
 
 GameOver.propTypes = {
   score: PropTypes.number,
-  startNewGame: PropTypes.func
+  startNewGame: PropTypes.func,
 };

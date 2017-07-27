@@ -1,12 +1,8 @@
 // @flow
 
 // React
-import React, {Component} from 'react';
-import {
-  Text,
-  View,
-  VrButton
-} from 'react-vr';
+import React, { Component } from 'react';
+import { Text, View, VrButton } from 'react-vr';
 
 // Libs
 import PropTypes from 'prop-types';
@@ -23,7 +19,8 @@ export default class StartGame extends Component {
 
         <VrButton
           style={styles.button}
-          onClick={()=> this.props.startNewGame()}>
+          onClick={() => this.props.startNewGame()}
+        >
           <Text style={styles.buttonText}>Play Game!</Text>
         </VrButton>
       </View>
