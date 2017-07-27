@@ -9,6 +9,9 @@ import {
 
 import Shape, { shapes } from './vr/components/Shape';
 import SplashScreen from './vr/components/SplashScreen';
+import Game from './vr/components/Game';
+
+import questions from './questions.json';
 
 class ShapeGame extends Component {
   constructor() {
@@ -16,6 +19,7 @@ class ShapeGame extends Component {
 
     this.state = {
       gameShapes: [1, 1, 1, 1],
+      questions: questions,
       score: 0,
       highestScore: 0,
       specialIndex: 0,
@@ -78,83 +82,33 @@ class ShapeGame extends Component {
   }
 
   startNewGame() {
-    console.log('in here')
     this.setState({score: 0});
     this.newGameSet();
-    this.setState({playingGame: true});
+    this.setState({
+      playingGame: true,
+      gameOver: false
+    });
   }
 
   render() {
     if(this.state.playingGame){
       return (
-        <View style={styles.gameStyle}>
-          <Text style={styles.text}>Find the odd shape!</Text>
-          <Text style={styles.text}>Current Score: {this.state.score}</Text>
-          <Text style={styles.text}>Highest Score: {this.state.highestScore}</Text>
-          {
-            this.state.gameShapes.map((shape, index) => {
-              return (
-                <View
-                key={index}
-                onEnter={() => this.pickShape(index)}
-                >
-                <Shape
-                shapeNum={shape}
-                colorNum={index}
-                transform={[{translate: [(index-1.5)*1.5, 1, -5]}]}
-                />
-                </View>
-              )
-            })
-          }
-          <Text style={styles.questionBlock}>What means happy?</Text>
-        </View>
+        <Game
+          score={this.state.score}
+          highestScore={this.state.highestScore}
+          gameShapes={this.state.gameShapes}
+          pickShape={this.pickShape.bind(this)} />
       )
     } else {
       return(
-        <View>
-          <SplashScreen
-            highestScore={this.state.highestScore}
-            score={this.state.score}
-            gameOver={this.state.gameOver}
-            startNewGame={this.startNewGame.bind(this)} />
-        </View>
+        <SplashScreen
+          score={this.state.score}
+          highestScore={this.state.highestScore}
+          gameOver={this.state.gameOver}
+          startNewGame={this.startNewGame.bind(this)} />
       )
     }
   }
 }
-
-const styles = StyleSheet.create({
-  gameStyle: {
-    transform: [
-      { translate: [-2.25, 0, 0] }
-    ]
-  },
-  text: {
-    fontSize: 0.2,
-    textAlign: 'center',
-    color: '#fff',
-    transform: [
-      {translate: [0, 2, -5]}
-    ]
-  },
-  gameOverText: {
-    fontSize: 0.2,
-    textAlign: 'center',
-    color: '#fff',
-    transform: [
-      {translate: [0, 0, -5]}
-    ]
-  },
-  questionBlock: {
-    fontSize: 0.5,
-    textAlign: 'center',
-    color: '#000',
-    backgroundColor: '#fff',
-    transform: [
-      {translate: [0, -1, -5]}
-    ]
-  }
-})
 
 AppRegistry.registerComponent('ShapeGame', () => ShapeGame)

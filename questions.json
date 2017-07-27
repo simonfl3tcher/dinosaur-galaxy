@@ -1,0 +1,20 @@
+[
+  {
+    "question": "What food category does Simon belong to?",
+    "answers": {
+      "a": "Fruitarian diet",
+      "b": "Lacto vegetarianism",
+      "c": "Vegan diet"
+    },
+    "correct": "a"
+  },
+  {
+    "question": "What food category does Stuart belong to?",
+    "answers": {
+      "a": "Intermittent fasting",
+      "b": "Body for Life",
+      "c": "Cookie diet"
+    },
+    "correct": "c"
+  }
+]
