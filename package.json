@@ -11,6 +11,7 @@
     "flow": "flow; test $? -eq 0 -o $? -eq 2"
   },
   "dependencies": {
+    "eslint-plugin-jest": "^20.0.3",
     "ovrui": "~1.4.0",
     "prop-types": "^15.5.10",
     "react": "~15.4.1",

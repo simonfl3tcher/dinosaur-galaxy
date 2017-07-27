@@ -7,7 +7,6 @@ import Index from '../index.vr.js';
 import renderer from 'react-test-renderer';
 
 it('renders correctly', () => {
-  const tree = renderer.create(
-    <Index />
-  );
+  // let's add some tests y'all
+  const tree = renderer.create(<Index />);
 });
