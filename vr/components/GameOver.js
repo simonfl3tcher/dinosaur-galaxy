@@ -1,9 +1,10 @@
+// React
 import React, { Component } from 'react';
 import {
-  View,
+  StyleSheet,
   Text,
+  View,
   VrButton,
-  StyleSheet
 } from 'react-vr';
 
 export default class GameOver extends Component {
@@ -21,6 +22,7 @@ export default class GameOver extends Component {
   }
 }
 
+// Styles
 const styles = StyleSheet.create({
   gameStyle: {
     transform: [

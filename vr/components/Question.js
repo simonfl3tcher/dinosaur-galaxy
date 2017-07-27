@@ -1,3 +1,4 @@
+// React
 import React, { Component } from 'react';
 import {
   View,
@@ -6,16 +7,19 @@ import {
   StyleSheet
 } from 'react-vr';
 
+// Libs
+import { map } from 'lodash';
+
 export default class Question extends Component {
   render() {
     return (
       <View>
         {
-          this.props.gameShapes.map((shape, index) => {
+          map(this.props.question.answers, (value, key) => {
             return (
               <VrButton
-                key={index}
-                onClick={() => this.props.pickShape(index)}
+                key={key}
+                onClick={() => this.props.pickAnswer(key)}
                 >
                   <Text style={{
                     fontSize: 0.2,
@@ -24,17 +28,18 @@ export default class Question extends Component {
                     backgroundColor: '#fff',
                     margin: 0.1,
                     transform: [{translate: [0, 2, -5]}]
-                  }}>Point {index}</Text>
+                  }}>{value}</Text>
                 </VrButton>
               )
-            })
-          }
-          <Text style={styles.questionBlock}>What means happy?</Text>
+          })
+        }
+        <Text style={styles.questionBlock}>{this.props.question.question}</Text>
       </View>
     )
   }
 }
 
+// Styles
 const styles = StyleSheet.create({
   questionBlock: {
     fontSize: 0.5,

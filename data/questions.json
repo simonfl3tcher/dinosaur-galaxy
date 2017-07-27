@@ -6,7 +6,7 @@
       "b": "Lacto vegetarianism",
       "c": "Vegan diet"
     },
-    "correct": "a"
+    "answer": "a"
   },
   {
     "question": "What food category does Stuart belong to?",
@@ -15,6 +15,6 @@
       "b": "Body for Life",
       "c": "Cookie diet"
     },
-    "correct": "c"
+    "answer": "c"
   }
 ]

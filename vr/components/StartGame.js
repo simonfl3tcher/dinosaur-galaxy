@@ -1,9 +1,10 @@
+// React
 import React, { Component } from 'react';
 import {
-  View,
+  StyleSheet,
   Text,
-  VrButton,
-  StyleSheet
+  View,
+  VrButton
 } from 'react-vr';
 
 export default class StartGame extends Component {

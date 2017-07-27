@@ -1,28 +1,31 @@
 import React, { Component } from 'react';
 import {
-  View,
-  Text,
+  AsyncStorage,
   AppRegistry,
-  StyleSheet,
-  AsyncStorage
+  Text,
+  View
 } from 'react-vr';
 
-import Shape, { shapes } from './vr/components/Shape';
-import SplashScreen from './vr/components/SplashScreen';
-import Game from './vr/components/Game';
+// Libs
+import { shuffle } from 'lodash'
 
-import questions from './questions.json';
+// Components
+import CompletedIt from './vr/components/CompletedIt';
+import Game from './vr/components/Game';
+import SplashScreen from './vr/components/SplashScreen';
+
+// Data
+import questions from './data/questions.json';
 
 class ShapeGame extends Component {
   constructor() {
     super();
 
     this.state = {
-      gameShapes: [1, 1, 1, 1],
-      questions: questions,
+      outstandingQuestions: questions,
+      question: {},
       score: 0,
       highestScore: 0,
-      specialIndex: 0,
       playingGame: false,
       gameOver: false
     }
@@ -33,46 +36,38 @@ class ShapeGame extends Component {
       .then(value => {
         this.setState({highestScore: value});
       });
-    this.newGameSet();
   }
 
-  newGameSet() {
-    let baseShapeId = Math.floor(Math.random() * shapes.length);
-    let specialShapeId = baseShapeId;
-
-    while(specialShapeId === baseShapeId) {
-      specialShapeId = Math.floor(Math.random() * shapes.length);
-    }
-
-    let newGameShapes = [];
-
-    for (let i = 0; i < this.state.gameShapes.length; i++) {
-      newGameShapes[i] = baseShapeId;
-    }
-
-    let specialIndex = Math.floor(Math.random() * newGameShapes.length);
-    newGameShapes[specialIndex] = specialShapeId;
-
+  startNewGame() {
     this.setState({
-      gameShapes: newGameShapes,
-      specialIndex: specialIndex
+      score: 0,
+      outstandingQuestions: questions,
+      playingGame: true,
+      gameOver: false
+    }, () => this.setNewGame());
+  }
+
+  setNewGame() {
+    let outstandingQuestions = shuffle(this.state.outstandingQuestions)
+    let question = outstandingQuestions.pop();
+    this.setState({
+      question,
+      outstandingQuestions
     });
   }
 
-  pickShape(shapeIndex) {
+  pickAnswer(key) {
     let score = this.state.score;
-    if(this.state.specialIndex === shapeIndex) {
-      score = score + 1;
+    if(this.state.question.answer === key) {
+      score++;
       this.setState({score});
-
+      this.setNewGame();
       AsyncStorage.getItem('highestScore')
-      .then(value => {
-        if(score > value) {
-          AsyncStorage.setItem('highestScore', score)
-        }
-      });
-      this.setState({score: score});
-      this.newGameSet();
+        .then(value => {
+          if(score > value) {
+            AsyncStorage.setItem('highestScore', score);
+          }
+        })
     } else {
       this.setState({
         playingGame: false,
@@ -81,23 +76,18 @@ class ShapeGame extends Component {
     }
   }
 
-  startNewGame() {
-    this.setState({score: 0});
-    this.newGameSet();
-    this.setState({
-      playingGame: true,
-      gameOver: false
-    });
-  }
-
   render() {
-    if(this.state.playingGame){
+    if(!this.state.question) {
+      return(
+        <CompletedIt />
+      )
+    } else if(this.state.playingGame){
       return (
         <Game
           score={this.state.score}
           highestScore={this.state.highestScore}
-          gameShapes={this.state.gameShapes}
-          pickShape={this.pickShape.bind(this)} />
+          question={this.state.question}
+          pickAnswer={this.pickAnswer.bind(this)} />
       )
     } else {
       return(
