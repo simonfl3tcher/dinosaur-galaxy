@@ -34,6 +34,9 @@
     "xopen": "1.0.0"
   },
   "jest": {
-    "preset": "react-vr"
+    "preset": "react-vr",
+    "testPathIgnorePatterns": ["/node_modules/", "/__tests__/__support__/"],
+    "testRegex": "(/__tests__/.*|\\.(test))\\.(js)$",
+    "moduleFileExtensions": ["js", "json"]
   }
 }

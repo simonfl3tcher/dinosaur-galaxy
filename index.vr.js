@@ -15,7 +15,7 @@ import SplashScreen from './vr/components/SplashScreen';
 // Data
 import questions from './data/questions.json';
 
-class VRsaurus extends Component {
+export default class VRsaurus extends Component {
   // Flow Annotation
   state: {
     outstandingQuestions: Array<Object>,

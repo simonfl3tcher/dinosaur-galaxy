@@ -1,0 +1,139 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View>
+  <View
+    disabled={false}
+    ignoreLongClick={false}
+    onClick={[Function]}
+    onEnter={[Function]}
+    onExit={[Function]}
+    onInput={[Function]}
+    testID={undefined}
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      isOnLayer={false}
+      style={
+        Object {
+          "backgroundColor": "#fff",
+          "color": "#000",
+          "fontSize": 0.2,
+          "margin": 0.1,
+          "textAlign": "center",
+          "transform": Array [
+            Object {
+              "translate": Array [
+                0,
+                2,
+                -5,
+              ],
+            },
+          ],
+        }
+      }
+    >
+      a
+    </Text>
+  </View>
+  <View
+    disabled={false}
+    ignoreLongClick={false}
+    onClick={[Function]}
+    onEnter={[Function]}
+    onExit={[Function]}
+    onInput={[Function]}
+    testID={undefined}
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      isOnLayer={false}
+      style={
+        Object {
+          "backgroundColor": "#fff",
+          "color": "#000",
+          "fontSize": 0.2,
+          "margin": 0.1,
+          "textAlign": "center",
+          "transform": Array [
+            Object {
+              "translate": Array [
+                0,
+                2,
+                -5,
+              ],
+            },
+          ],
+        }
+      }
+    >
+      b
+    </Text>
+  </View>
+  <View
+    disabled={false}
+    ignoreLongClick={false}
+    onClick={[Function]}
+    onEnter={[Function]}
+    onExit={[Function]}
+    onInput={[Function]}
+    testID={undefined}
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      isOnLayer={false}
+      style={
+        Object {
+          "backgroundColor": "#fff",
+          "color": "#000",
+          "fontSize": 0.2,
+          "margin": 0.1,
+          "textAlign": "center",
+          "transform": Array [
+            Object {
+              "translate": Array [
+                0,
+                2,
+                -5,
+              ],
+            },
+          ],
+        }
+      }
+    >
+      b
+    </Text>
+  </View>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    isOnLayer={false}
+    style={
+      Object {
+        "backgroundColor": "#fff",
+        "color": "#000",
+        "fontSize": 0.5,
+        "textAlign": "center",
+        "transform": Array [
+          Object {
+            "translate": Array [
+              0,
+              1,
+              -5,
+            ],
+          },
+        ],
+      }
+    }
+  >
+    example?
+  </Text>
+</View>
+`;

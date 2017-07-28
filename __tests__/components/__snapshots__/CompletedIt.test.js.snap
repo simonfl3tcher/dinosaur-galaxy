@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "transform": Array [
+        Object {
+          "translate": Array [
+            -2.25,
+            0,
+            0,
+          ],
+        },
+      ],
+    }
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    isOnLayer={false}
+    style={
+      Object {
+        "color": "#fff",
+        "fontSize": 0.2,
+        "textAlign": "center",
+        "transform": Array [
+          Object {
+            "translate": Array [
+              0,
+              2,
+              -5,
+            ],
+          },
+        ],
+      }
+    }
+  >
+    You have completed all of the questions
+  </Text>
+</View>
+`;
