@@ -16,5 +16,86 @@
       "c": "Cookie diet"
     },
     "answer": "c"
+  },
+  {
+    "question": "What food category does Vala belong to?",
+    "answers": {
+      "a": "Kangatarian",
+      "b": "Plant-based diet",
+      "c": "Cookie diet"
+    },
+    "answer": "b"
+  },
+  {
+    "question": "What food category does Tayo belong to?",
+    "answers": {
+      "a": "The Hacker's Diet",
+      "b": "Body for Life",
+      "c": "Inedia"
+    },
+    "answer": "a"
+  },
+  {
+    "question": "What food category does Bartek belong to?",
+    "answers": {
+      "a": "Atkins diet",
+      "b": "Body for Life",
+      "c": "Inedia"
+    },
+    "answer": "a"
+  },
+  {
+    "question": "What food category does Tim belong to?",
+    "answers": {
+      "a": "South Beach Diet",
+      "b": "Body for Life",
+      "c": "Stillman diet"
+    },
+    "answer": "c"
+  },
+  {
+    "question": "What food category does Colin belong to?",
+    "answers": {
+      "a": "South Beach Diet",
+      "b": "Inedia",
+      "c": "Body for Life"
+    },
+    "answer": "c"
+  },
+  {
+    "question": "What food category does Thomas belong to?",
+    "answers": {
+      "a": "The Hacker's Diet",
+      "b": "Body for Life",
+      "c": "Inedia"
+    },
+    "answer": "c"
+  },
+  {
+    "question": "What food category does Sean belong to?",
+    "answers": {
+      "a": "Intermittent fasting",
+      "b": "South Beach Diet",
+      "c": "Inedia"
+    },
+    "answer": "c"
+  },
+  {
+    "question": "What food category does Shoshi belong to?",
+    "answers": {
+      "a": "Intermittent fasting",
+      "b": "South Beach Diet",
+      "c": "Cookie diet"
+    },
+    "answer": "c"
+  },
+  {
+    "question": "What food category does Andy belong to?",
+    "answers": {
+      "a": "Kangatarian",
+      "b": "Body for Life",
+      "c": "Plant-based diet"
+    },
+    "answer": "c"
   }
 ]
