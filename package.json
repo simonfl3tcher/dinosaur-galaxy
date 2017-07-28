@@ -21,11 +21,12 @@
     "three": "^0.80.1"
   },
   "devDependencies": {
+    "babel-eslint": "^7.2.3",
     "babel-jest": "^19.0.0",
     "babel-preset-react-native": "^1.9.1",
     "eslint": "^4.3.0",
-    "babel-eslint": "^7.2.3",
     "eslint-plugin-babel": "^4.1.2",
+    "eslint-plugin-jest": "^20.0.3",
     "eslint-plugin-react": "^7.1.0",
     "jest": "^19.0.2",
     "react-devtools": "^2.1.3",

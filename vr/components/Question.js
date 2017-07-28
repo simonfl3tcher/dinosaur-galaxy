@@ -6,14 +6,18 @@ import { Text, View, VrButton } from 'react-vr';
 
 // Libs
 import { map } from 'lodash';
-import PropTypes from 'prop-types';
 import styles from '../styles/main';
 
 export default class Question extends Component {
+  props: {
+    question: Object,
+    pickAnswer: Function
+  };
+
   render() {
     return (
       <View>
-        {map(this.props.question.answers, (value, key) => {
+        {map(this.props.question.answers, (value: string, key: string) => {
           return (
             <VrButton key={key} onClick={() => this.props.pickAnswer(key)}>
               <Text
@@ -38,8 +42,3 @@ export default class Question extends Component {
     );
   }
 }
-
-Question.propTypes = {
-  question: PropTypes.object,
-  pickAnswer: PropTypes.func,
-};

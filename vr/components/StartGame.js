@@ -5,10 +5,14 @@ import React, { Component } from 'react';
 import { Text, View, VrButton } from 'react-vr';
 
 // Libs
-import PropTypes from 'prop-types';
 import styles from '../styles/main';
 
 export default class StartGame extends Component {
+  props: {
+    highestScore: number,
+    startNewGame: Function
+  };
+
   render() {
     return (
       <View style={styles.gameStyle}>
@@ -27,8 +31,3 @@ export default class StartGame extends Component {
     );
   }
 }
-
-StartGame.propTypes = {
-  highestScore: PropTypes.number,
-  startNewGame: PropTypes.func,
-};

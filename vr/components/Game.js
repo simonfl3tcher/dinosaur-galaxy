@@ -8,10 +8,16 @@ import { Text, View } from 'react-vr';
 import Question from './Question';
 
 // Libs
-import PropTypes from 'prop-types';
 import styles from '../styles/main';
 
 export default class Game extends Component {
+  props: {
+    highestScore: number,
+    pickAnswer: Function,
+    question: Object,
+    score: number
+  };
+
   render() {
     return (
       <View style={styles.gameStyle}>
@@ -30,10 +36,3 @@ export default class Game extends Component {
     );
   }
 }
-
-Game.propTypes = {
-  highestScore: PropTypes.number,
-  pickAnswer: PropTypes.func,
-  question: PropTypes.object,
-  score: PropTypes.number,
-};
