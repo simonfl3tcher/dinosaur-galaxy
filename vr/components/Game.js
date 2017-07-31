@@ -15,7 +15,8 @@ export default class Game extends Component {
     highestScore: number,
     pickAnswer: Function,
     question: Object,
-    score: number
+    score: number,
+    seconds: number
   };
 
   render() {
@@ -27,6 +28,9 @@ export default class Game extends Component {
         </Text>
         <Text style={styles.text}>
           Highest Score: {this.props.highestScore}
+        </Text>
+        <Text style={styles.text}>
+          Timer: {this.props.seconds}
         </Text>
         <Question
           question={this.props.question}
