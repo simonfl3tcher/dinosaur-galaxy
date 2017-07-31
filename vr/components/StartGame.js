@@ -25,8 +25,8 @@ export default class StartGame extends Component {
     Animated.spring(                          // Base: spring, decay, timing
       this.state.bounceValue,                 // Animate `bounceValue`
       {
-        toValue: 0.8,                         // Animate to smaller size
-        friction: 1,                          // Bouncier spring
+        toValue: -90,                         // Animate to smaller size
+        spring: 100,                           // Bouncier spring
       }
     ).start();                                // Start the animation
   }
@@ -37,7 +37,7 @@ export default class StartGame extends Component {
     height: 1,
     transform: [
         { translate: [0, 2, -5] },
-        { scale: this.state.bounceValue }
+        { rotateX: this.state.bounceValue }
       ],
     }
 
