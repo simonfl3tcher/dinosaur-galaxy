@@ -2,7 +2,7 @@
 
 // React
 import React, { Component } from 'react';
-import { Text, View, VrButton } from 'react-vr';
+import { Text, View, VrButton, Animated } from 'react-vr';
 
 // Libs
 import styles from '../styles/main';
@@ -13,20 +13,38 @@ export default class StartGame extends Component {
     startNewGame: Function
   };
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      bounceValue: new Animated.Value(0),
+    };
+  }
+
+  componentDidMount() {
+    this.state.bounceValue.setValue(1.5);     // Start large
+    Animated.spring(                          // Base: spring, decay, timing
+      this.state.bounceValue,                 // Animate `bounceValue`
+      {
+        toValue: 0.8,                         // Animate to smaller size
+        friction: 1,                          // Bouncier spring
+      }
+    ).start();                                // Start the animation
+  }
+
   render() {
+    let textAnim = {
+      fontSize: 0.2,
+      textAlign: 'center',
+      color: '#fff',
+      transform: [
+        { translate: [0, 2, -5] },
+        { scale: this.state.bounceValue }
+      ],
+    }
+
     return (
       <View style={styles.gameStyle}>
-        <Text style={styles.text}>Welcome to VRSarus</Text>
-        <Text style={styles.text}>
-          Your highest score: {this.props.highestScore}
-        </Text>
-
-        <VrButton
-          style={styles.button}
-          onClick={() => this.props.startNewGame()}
-        >
-          <Text style={styles.buttonText}>Play Game!</Text>
-        </VrButton>
+        <Animated.Text style={textAnim}>Welcome to VRSarus</Animated.Text>
       </View>
     );
   }
