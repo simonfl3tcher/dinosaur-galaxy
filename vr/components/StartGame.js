@@ -2,7 +2,7 @@
 
 // React
 import React, { Component } from 'react';
-import { Text, View, VrButton, Animated } from 'react-vr';
+import { Image, View, VrButton, Animated } from 'react-vr';
 
 // Libs
 import styles from '../styles/main';
@@ -32,11 +32,10 @@ export default class StartGame extends Component {
   }
 
   render() {
-    let textAnim = {
-      fontSize: 0.2,
-      textAlign: 'center',
-      color: '#fff',
-      transform: [
+    let animatedImage = {
+    width: 1,
+    height: 1,
+    transform: [
         { translate: [0, 2, -5] },
         { scale: this.state.bounceValue }
       ],
@@ -44,7 +43,9 @@ export default class StartGame extends Component {
 
     return (
       <View style={styles.gameStyle}>
-        <Animated.Text style={textAnim}>Welcome to VRSarus</Animated.Text>
+        <Animated.Image
+          source={{uri: '/static_assets/dino.png'}}
+          style={animatedImage} />
       </View>
     );
   }
