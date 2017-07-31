@@ -2,10 +2,12 @@
 
 // React
 import React, { Component } from 'react';
-import { Image, View, VrButton, Animated } from 'react-vr';
+import { Image, View, VrButton, Animated, Model, asset } from 'react-vr';
 
 // Libs
 import styles from '../styles/main';
+
+var AnimatedModel = Animated.createAnimatedComponent(Model);
 
 export default class StartGame extends Component {
   props: {
@@ -16,37 +18,39 @@ export default class StartGame extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      bounceValue: new Animated.Value(0),
+      rotateValue: new Animated.Value(0),
     };
   }
 
-  componentDidMount() {
-    this.state.bounceValue.setValue(1.5);     // Start large
-    Animated.spring(                          // Base: spring, decay, timing
-      this.state.bounceValue,                 // Animate `bounceValue`
+  rotate() {
+    Animated.spring(
+      this.state.rotateValue,
       {
-        toValue: -90,                         // Animate to smaller size
-        spring: 100,                           // Bouncier spring
+        toValue: 360,
+        tension: 60,
       }
-    ).start();                                // Start the animation
+    ).start();
   }
 
   render() {
-    let animatedImage = {
-    width: 1,
-    height: 1,
-    transform: [
-        { translate: [0, 2, -5] },
-        { rotateX: this.state.bounceValue }
-      ],
-    }
-
     return (
-      <View style={styles.gameStyle}>
-        <Animated.Image
-          source={{uri: '/static_assets/dino.png'}}
-          style={animatedImage} />
-      </View>
+      <VrButton style={styles.gameStyle} onClick={() => this.rotate()}>
+        <AnimatedModel
+          style={{
+            transform: [
+              { translate: [2, 0, -5] },
+              { scale: 0.03 },
+              //{ rotateX: this.state.rotateValue },
+              //{ rotateY: this.state.rotateValue },
+              { rotateY: this.state.rotateValue },
+              //{ rotateZ: 0 },
+            ],
+          }}
+          source={{
+            obj: asset('Squirrel.obj'),
+            mtl: asset('Squirrel.mtl'),
+          }} />
+      </VrButton>
     );
   }
 }
