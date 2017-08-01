@@ -2,7 +2,7 @@
 
 // React
 import React, { Component } from 'react';
-import { Text, View } from 'react-vr';
+import { Text, View, Sound, asset } from 'react-vr';
 
 // Components
 import Question from './Question';
@@ -32,6 +32,13 @@ export default class Game extends Component {
         <Text style={styles.text}>
           Timer: {this.props.seconds}
         </Text>
+        <Sound
+          loop={true}
+          volume={0.5}
+          source={{
+            mp3: asset('ambient.mp3'),
+          }}
+        />
         <Question
           question={this.props.question}
           pickAnswer={this.props.pickAnswer}

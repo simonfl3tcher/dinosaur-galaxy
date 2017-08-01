@@ -6,6 +6,9 @@ export default StyleSheet.create({
   gameStyle: {
     transform: [{ translate: [-2.25, 0, 0] }],
   },
+  welcomeScreen: {
+    transform: [{ translate: [-0.2, 0, 0] }],
+  },
   text: {
     fontSize: 0.2,
     textAlign: 'center',
@@ -34,4 +37,5 @@ export default StyleSheet.create({
     backgroundColor: '#fff',
     transform: [{ translate: [0, 1, -5] }],
   },
+  startButton: {},
 });
