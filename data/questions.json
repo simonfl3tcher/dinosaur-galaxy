@@ -2,100 +2,31 @@
   {
     "question": "What food category does Simon belong to?",
     "answers": {
-      "a": "Fruitarian diet",
-      "b": "Lacto vegetarianism",
-      "c": "Vegan diet"
+      "a": {"answer": "Fruitarian diet", "character": "https://images.contentful.com/qzt7z2twdly3/57Ofa20yfmYGOoiWoIcWE0/8cde7fe9e633300c9a059c70dd9330b8/mint_stuart_2x.png"},
+      "b": {"answer": "Lacto vegetarianism", "character": "https://images.contentful.com/qzt7z2twdly3/57Ofa20yfmYGOoiWoIcWE0/8cde7fe9e633300c9a059c70dd9330b8/mint_stuart_2x.png"},
+      "c": {"answer": "Vegan diet", "character": "https://images.contentful.com/qzt7z2twdly3/57Ofa20yfmYGOoiWoIcWE0/8cde7fe9e633300c9a059c70dd9330b8/mint_stuart_2x.png"},
+      "d": {"answer": "Cookie diet", "character": "https://images.contentful.com/qzt7z2twdly3/57Ofa20yfmYGOoiWoIcWE0/8cde7fe9e633300c9a059c70dd9330b8/mint_stuart_2x.png"},
+      "e": {"answer": "Body for Life", "character": "https://images.contentful.com/qzt7z2twdly3/57Ofa20yfmYGOoiWoIcWE0/8cde7fe9e633300c9a059c70dd9330b8/mint_stuart_2x.png"}
     },
-    "answer": "a"
+    "correct_answers": [
+      {"key": "a", "score": 10},
+      {"key": "b", "score": 20},
+      {"key": "c", "score": 30},
+    ]
   },
   {
     "question": "What food category does Stuart belong to?",
     "answers": {
-      "a": "Intermittent fasting",
-      "b": "Body for Life",
-      "c": "Cookie diet"
+      "a": {"answer": "Intermittent fasting", "character": "https://images.contentful.com/qzt7z2twdly3/57Ofa20yfmYGOoiWoIcWE0/8cde7fe9e633300c9a059c70dd9330b8/mint_stuart_2x.png"},
+      "b": {"answer": "Body for Life", "character": "https://images.contentful.com/qzt7z2twdly3/57Ofa20yfmYGOoiWoIcWE0/8cde7fe9e633300c9a059c70dd9330b8/mint_stuart_2x.png"},
+      "c": {"answer": "Cookie diet", "character": "https://images.contentful.com/qzt7z2twdly3/57Ofa20yfmYGOoiWoIcWE0/8cde7fe9e633300c9a059c70dd9330b8/mint_stuart_2x.png"},
+      "d": {"answer": "Lacto vegetarianism", "character": "https://images.contentful.com/qzt7z2twdly3/57Ofa20yfmYGOoiWoIcWE0/8cde7fe9e633300c9a059c70dd9330b8/mint_stuart_2x.png"},
+      "e": {"answer": "Fruitarian diet", "character": "https://images.contentful.com/qzt7z2twdly3/57Ofa20yfmYGOoiWoIcWE0/8cde7fe9e633300c9a059c70dd9330b8/mint_stuart_2x.png"}
     },
-    "answer": "c"
-  },
-  {
-    "question": "What food category does Vala belong to?",
-    "answers": {
-      "a": "Kangatarian",
-      "b": "Plant-based diet",
-      "c": "Cookie diet"
-    },
-    "answer": "b"
-  },
-  {
-    "question": "What food category does Tayo belong to?",
-    "answers": {
-      "a": "The Hacker's Diet",
-      "b": "Body for Life",
-      "c": "Inedia"
-    },
-    "answer": "a"
-  },
-  {
-    "question": "What food category does Bartek belong to?",
-    "answers": {
-      "a": "Atkins diet",
-      "b": "Body for Life",
-      "c": "Inedia"
-    },
-    "answer": "a"
-  },
-  {
-    "question": "What food category does Tim belong to?",
-    "answers": {
-      "a": "South Beach Diet",
-      "b": "Body for Life",
-      "c": "Stillman diet"
-    },
-    "answer": "c"
-  },
-  {
-    "question": "What food category does Colin belong to?",
-    "answers": {
-      "a": "South Beach Diet",
-      "b": "Inedia",
-      "c": "Body for Life"
-    },
-    "answer": "c"
-  },
-  {
-    "question": "What food category does Thomas belong to?",
-    "answers": {
-      "a": "The Hacker's Diet",
-      "b": "Body for Life",
-      "c": "Inedia"
-    },
-    "answer": "c"
-  },
-  {
-    "question": "What food category does Sean belong to?",
-    "answers": {
-      "a": "Intermittent fasting",
-      "b": "South Beach Diet",
-      "c": "Inedia"
-    },
-    "answer": "c"
-  },
-  {
-    "question": "What food category does Shoshi belong to?",
-    "answers": {
-      "a": "Intermittent fasting",
-      "b": "South Beach Diet",
-      "c": "Cookie diet"
-    },
-    "answer": "c"
-  },
-  {
-    "question": "What food category does Andy belong to?",
-    "answers": {
-      "a": "Kangatarian",
-      "b": "Body for Life",
-      "c": "Plant-based diet"
-    },
-    "answer": "c"
+    "correct_answers": [
+      {"key": "a", "score": 10},
+      {"key": "d", "score": 20},
+      {"key": "e", "score": 30},
+    ]
   }
 ]

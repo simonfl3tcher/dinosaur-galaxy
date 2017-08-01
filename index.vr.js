@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 import { AsyncStorage, AppRegistry } from 'react-vr';
 
 // Libs
-import { shuffle } from 'lodash';
+import { shuffle, find } from 'lodash';
 
 // Components
 import CompletedIt from './vr/components/CompletedIt';
@@ -93,15 +93,24 @@ export default class VRsaurus extends Component {
     }
   }
 
-  runScoringAlgorithm() {
+  runScoringAlgorithm(score: number) {
     return (
-      this.state.seconds * 10 * (this.state.score == 0 ? 1 : this.state.score)
+      this.state.seconds * score +
+      (this.state.score == 0 ? 1 : this.state.score)
     );
   }
 
+  getScoreForAnswer(key: String) {
+    let obj = find(this.state.question.correct_answers, ['key', key]);
+    return obj ? obj.score : 0;
+  }
+
   pickAnswer(key: String) {
-    if (this.state.question.answer === key) {
-      let score = this.runScoringAlgorithm();
+    let obj = find(this.state.question.correct_answers, ['key', key]);
+
+    if (obj) {
+      let points = this.getScoreForAnswer(key);
+      let score = this.runScoringAlgorithm(points);
       this.setState({ score }, () => this.setNewGame());
       AsyncStorage.getItem('highestScore').then(value => {
         if (score > value) {
