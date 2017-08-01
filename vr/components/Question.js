@@ -30,7 +30,7 @@ export default class Question extends Component {
                   transform: [{ translate: [0, 2, -5] }],
                 }}
               >
-                {value}
+                {value.answer}
               </Text>
             </VrButton>
           );
