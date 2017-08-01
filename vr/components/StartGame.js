@@ -1,13 +1,10 @@
-// @flow
-
-// React
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Text, View, VrButton } from 'react-vr';
-
-// Libs
 import styles from '../styles/main';
+import { startNewGame } from '../actions';
 
-export default class StartGame extends Component {
+class StartGame extends Component {
   props: {
     highestScore: number,
     startNewGame: Function
@@ -17,9 +14,6 @@ export default class StartGame extends Component {
     return (
       <View style={styles.gameStyle}>
         <Text style={styles.text}>Welcome to VRSarus</Text>
-        <Text style={styles.text}>
-          Your highest score: {this.props.highestScore}
-        </Text>
 
         <VrButton
           style={styles.button}
@@ -31,3 +25,6 @@ export default class StartGame extends Component {
     );
   }
 }
+
+export default connect(
+  null, { startNewGame })(StartGame);

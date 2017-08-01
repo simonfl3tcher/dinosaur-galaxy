@@ -1,7 +1,7 @@
 import 'react-native';
 import 'react-vr';
 import React from 'react';
-import Question from '../../vr/components/Question.js';
+import Question from '../../vr/components/game/Question.js';
 
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';

@@ -8,11 +8,7 @@
       "d": {"answer": "Cookie diet", "character": "https://images.contentful.com/qzt7z2twdly3/57Ofa20yfmYGOoiWoIcWE0/8cde7fe9e633300c9a059c70dd9330b8/mint_stuart_2x.png"},
       "e": {"answer": "Body for Life", "character": "https://images.contentful.com/qzt7z2twdly3/57Ofa20yfmYGOoiWoIcWE0/8cde7fe9e633300c9a059c70dd9330b8/mint_stuart_2x.png"}
     },
-    "correct_answers": [
-      {"key": "a", "score": 10},
-      {"key": "b", "score": 20},
-      {"key": "c", "score": 30},
-    ]
+    "correct_answer": "a"
   },
   {
     "question": "What food category does Stuart belong to?",
@@ -23,10 +19,6 @@
       "d": {"answer": "Lacto vegetarianism", "character": "https://images.contentful.com/qzt7z2twdly3/57Ofa20yfmYGOoiWoIcWE0/8cde7fe9e633300c9a059c70dd9330b8/mint_stuart_2x.png"},
       "e": {"answer": "Fruitarian diet", "character": "https://images.contentful.com/qzt7z2twdly3/57Ofa20yfmYGOoiWoIcWE0/8cde7fe9e633300c9a059c70dd9330b8/mint_stuart_2x.png"}
     },
-    "correct_answers": [
-      {"key": "a", "score": 10},
-      {"key": "d", "score": 20},
-      {"key": "e", "score": 30},
-    ]
+    "correct_answer": "a"
   }
 ]
