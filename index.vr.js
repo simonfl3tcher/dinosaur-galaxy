@@ -21,7 +21,6 @@ export default class VRsaurus extends Component {
     outstandingQuestions: Array<Object>,
     question: Object,
     score: number,
-    seconds: number,
     highestScore: number,
     playingGame: boolean,
     gameOver: boolean
@@ -35,7 +34,6 @@ export default class VRsaurus extends Component {
       outstandingQuestions: questions,
       question: {},
       score: 0,
-      seconds: 45,
       highestScore: 0,
       playingGame: false,
       gameOver: false,
@@ -67,37 +65,14 @@ export default class VRsaurus extends Component {
     );
     let question = outstandingQuestions.pop();
     this.setState({
-      seconds: 45,
       question: question,
       outstandingQuestions: outstandingQuestions,
     });
     this.startTimer();
   }
 
-  startTimer() {
-    if (this.timer == 0) {
-      this.timer = setInterval(this.countDown.bind(this), 1000);
-    }
-  }
-
-  countDown() {
-    let secs = this.state.seconds - 1;
-    this.setState({
-      seconds: secs,
-    });
-
-    // Check if we're at zero.
-    if (secs == 0) {
-      this.timer = 0;
-      this.setNewGame();
-    }
-  }
-
   runScoringAlgorithm(score: number) {
-    return (
-      this.state.seconds * score +
-      (this.state.score == 0 ? 1 : this.state.score)
-    );
+    return score + (this.state.score == 0 ? 1 : this.state.score);
   }
 
   getScoreForAnswer(key: String) {
@@ -131,7 +106,6 @@ export default class VRsaurus extends Component {
     } else if (this.state.playingGame) {
       return (
         <Game
-          seconds={this.state.seconds}
           score={this.state.score}
           highestScore={this.state.highestScore}
           question={this.state.question}

@@ -6,6 +6,8 @@ import { View, VrButton, Model, asset } from 'react-vr';
 
 // Libs
 import styles from '../styles/main';
+import Score from './Score';
+import Dino from './Dino';
 
 import { map, range, random } from 'lodash';
 
@@ -30,7 +32,7 @@ export default class StartGame extends Component {
               style={{
                 transform: [
                   { translate: [pos1 - 5, pos2 - 5, pos3 - 10] },
-                  { scale: 0.05 },
+                  { scale: 0.01 },
                 ],
               }}
               source={{
@@ -62,19 +64,11 @@ export default class StartGame extends Component {
             mtl: asset('welcome/welcome.mtl'),
           }}
         />
-        <Model
-          style={{
-            transform: [{ translate: [0, 0.5, -4] }, { scale: 0.01 }],
-            flex: 1,
-            width: 0.5,
-            alignItems: 'center',
-            flexDirection: 'column',
-          }}
-          source={{
-            obj: asset('your-high-score/your-high-score.obj'),
-            mtl: asset('your-high-score/your-high-score.mtl'),
-          }}
+        <Score
+          precedingTextModel="your-high-score"
+          score={this.props.highestScore}
         />
+        <Dino />
         <VrButton onClick={() => this.props.startNewGame()}>
           <Model
             style={{

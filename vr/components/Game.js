@@ -6,6 +6,7 @@ import { Text, View, Sound, asset } from 'react-vr';
 
 // Components
 import Question from './Question';
+import Score from './Score';
 
 // Libs
 import styles from '../styles/main';
@@ -15,8 +16,7 @@ export default class Game extends Component {
     highestScore: number,
     pickAnswer: Function,
     question: Object,
-    score: number,
-    seconds: number
+    score: number
   };
 
   render() {
@@ -26,12 +26,10 @@ export default class Game extends Component {
         <Text style={styles.text}>
           Current Score: {this.props.score}
         </Text>
-        <Text style={styles.text}>
-          Highest Score: {this.props.highestScore}
-        </Text>
-        <Text style={styles.text}>
-          Timer: {this.props.seconds}
-        </Text>
+        <Score
+          precedingTextModel="your-high-score"
+          score={this.props.highestScore}
+        />
         <Sound
           loop={true}
           volume={0.5}
