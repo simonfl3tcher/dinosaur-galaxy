@@ -35,7 +35,7 @@ export default StyleSheet.create({
     textAlign: 'center',
     color: '#000',
     backgroundColor: '#fff',
-    transform: [{ translate: [0, 1, -5] }],
+    transform: [{ translate: [0, -1, -5] }],
   },
   startButton: {},
 });
