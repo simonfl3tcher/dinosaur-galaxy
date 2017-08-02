@@ -1,5 +1,6 @@
 import React from 'react';
 import { Model, VrButton, Animated, asset } from 'react-vr';
+import { random } from 'lodash';
 
 let AnimatedModel = Animated.createAnimatedComponent(Model);
 
@@ -25,12 +26,16 @@ export default class Character extends React.Component {
   }
 
   render() {
+    let pos1 = random(2, 6, true) * (Math.random() < 0.5 ? -1 : 1);
+    let pos2 = random(2, 4, true) * (Math.random() < 0.5 ? -1 : 1) + 2;
+    let pos3 = random(4, 7, true) * (Math.random() < 0.5 ? -1 : 1);
+
     return (
       <VrButton onClick={() => this.pickAnswer()}>
         <AnimatedModel
           style={{
             transform: [
-              { translate: [this.props.index - 1, Math.abs(this.props.index - 3), -6] },
+              { translate: [pos1, pos2, pos3] },
               { scale: 0.03 },
               { rotateY: this.state.rotateValue },
               { rotateX: 0 },
