@@ -16,10 +16,11 @@ export default class Score extends Component {
   render() {
     let scoreArray = split(this.props.score.toString(), '');
     return (
-      <View>
+      <View
+        style={{ transform: [{ translate: [0, 0.5, -4] }, { scale: 0.01 }] }}
+      >
         <Model
           style={{
-            transform: [{ translate: [0, 0.5, -4] }, { scale: 0.01 }],
             flex: 1,
             width: 0.5,
             alignItems: 'center',
@@ -40,7 +41,6 @@ export default class Score extends Component {
           return (
             <Model
               style={{
-                transform: [{ translate: [0, 0, -4] }, { scale: 0.02 }],
                 flex: 1,
                 width: 0.1,
                 flexDirection: 'row',

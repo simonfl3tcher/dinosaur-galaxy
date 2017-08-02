@@ -7,7 +7,7 @@ import { View, VrButton, Model, asset } from 'react-vr';
 // Libs
 import styles from '../styles/main';
 import Score from './Score';
-import Dino from './Dino';
+import Character from './Character';
 
 import { map, range, random } from 'lodash';
 
@@ -68,7 +68,7 @@ export default class StartGame extends Component {
           precedingTextModel="your-high-score"
           score={this.props.highestScore}
         />
-        <Dino />
+        <Character />
         <VrButton onClick={() => this.props.startNewGame()}>
           <Model
             style={{
