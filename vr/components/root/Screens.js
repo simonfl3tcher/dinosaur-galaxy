@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import Game from './Game';
-import StartGame from './StartGame';
-import CompletedIt from './CompletedIt';
-import GameOver from './GameOver';
+import Game from '../Game';
+import StartGame from '../StartGame';
+import CompletedIt from '../CompletedIt';
+import GameOver from '../GameOver';
 
 const Screens = ({ currentScreen }) => {
   switch(currentScreen) {
