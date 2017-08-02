@@ -1,10 +1,5 @@
-// @flow
-
-// React
 import React, { Component } from 'react';
 import { Text, View } from 'react-vr';
-
-// Libs
 import styles from '../styles/main';
 
 export default class CompletedIt extends Component {

@@ -1,12 +1,7 @@
-// @flow
-
-// React
 import React, { Component } from 'react';
 import { Text, View, VrButton } from 'react-vr';
-
-// Libs
 import { map } from 'lodash';
-import styles from '../styles/main';
+import styles from '../../styles/main';
 
 export default class Question extends Component {
   props: {

@@ -1,42 +1,42 @@
-// @flow
-
-// React
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Text, View } from 'react-vr';
-
-// Components
-import Question from './Question';
-
-// Libs
+import Question from './game/Question';
 import styles from '../styles/main';
+import { loadQuestions, pickAnswer } from '../actions';
 
-export default class Game extends Component {
+class Game extends Component {
   props: {
-    highestScore: number,
     pickAnswer: Function,
-    question: Object,
+    loadQuestions: Function,
+    currentQuestion: Object,
     score: number,
     seconds: number
   };
 
+  componentDidMount() {
+    this.props.loadQuestions();
+  }
+
   render() {
+    if(!this.props.currentQuestion) {
+      return <Text style={styles.text}>Loading</Text>;
+    }
+
     return (
       <View style={styles.gameStyle}>
         <Text style={styles.text}>VRSarus!</Text>
         <Text style={styles.text}>
           Current Score: {this.props.score}
         </Text>
-        <Text style={styles.text}>
-          Highest Score: {this.props.highestScore}
-        </Text>
-        <Text style={styles.text}>
-          Timer: {this.props.seconds}
-        </Text>
-        <Question
-          question={this.props.question}
-          pickAnswer={this.props.pickAnswer}
-        />
+        <Question question={this.props.currentQuestion} pickAnswer={this.props.pickAnswer} />
       </View>
     );
   }
 }
+
+export default connect(state => ({
+  score: state.game.score,
+  outstandingQuestions: state.game.outstandingQuestions,
+  currentQuestion: state.game.currentQuestion,
+}), { pickAnswer, loadQuestions })(Game);

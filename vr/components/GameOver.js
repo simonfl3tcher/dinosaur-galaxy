@@ -1,13 +1,10 @@
-// @flow
-
-// React
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Text, View, VrButton } from 'react-vr';
-
-// Libs
 import styles from '../styles/main';
+import { startNewGame } from '../actions';
 
-export default class GameOver extends Component {
+class GameOver extends Component {
   props: {
     score: number,
     startNewGame: Function
@@ -31,3 +28,7 @@ export default class GameOver extends Component {
     );
   }
 }
+
+export default connect(
+  state => ({ score: state.game.score }),
+  { startNewGame })(GameOver);
