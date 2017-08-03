@@ -5,11 +5,13 @@ import { map, range, random, sample } from 'lodash';
 import styles from '../../styles/main';
 
 function generateNumbers() {
-  let x = random(0, 10, true);
-  let y = random(0, 10, true);
-  let z = random(0, 20, true);
+  let x = random(0, 15, true);
+  let y = random(0, 15, true);
+  let z = random(0, 25, true);
 
-  if (x * x + y * y + z * z < 5 * 5) {
+  const radius = 10;
+
+  if (x * x + y * y + z * z < radius*radius) {
     return generateNumbers();
   } else {
     return [x, y, z];
@@ -25,9 +27,9 @@ const Star = () => {
         transform: [
           {
             translate: [
-              sample([true, false]) ? nums[0] : -Math.abs(nums[0]),
-              sample([true, false]) ? nums[1] : -Math.abs(nums[1]),
-              sample([true, false]) ? nums[2] : -Math.abs(nums[2]),
+              sample([true, false]) ? nums[0] : -nums[0],
+              sample([true, false]) ? nums[1] : -nums[1],
+              sample([true, false]) ? nums[2] : -nums[2],
             ],
           },
           { scale: 0.05 },

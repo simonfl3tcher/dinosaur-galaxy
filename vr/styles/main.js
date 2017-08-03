@@ -3,9 +3,6 @@
 import { StyleSheet } from 'react-vr';
 
 export default StyleSheet.create({
-  gameStyle: {
-    transform: [{ translate: [-2.25, 0, 0] }],
-  },
   welcomeScreen: {
     transform: [{ translate: [-0.2, 0, 0] }],
   },

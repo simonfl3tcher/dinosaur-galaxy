@@ -30,7 +30,7 @@ export default class Question extends Component {
         })}
         <Model
           style={{
-            transform: [{ translate: [2, -1.5, -5] }, { scale: 0.02 }],
+            transform: [{ translate: [0, -1.5, -5] }, { scale: 0.02 }],
           }}
           lit={true}
           source={{
@@ -41,7 +41,7 @@ export default class Question extends Component {
         <VrButton onClick={() => this.nextQuestion()}>
           <Model
             style={{
-              transform: [{ translate: [2, -2, -5] }, { scale: 0.01 }],
+              transform: [{ translate: [0, -2, -5] }, { scale: 0.01 }],
             }}
             lit={true}
             source={{

@@ -25,7 +25,7 @@ class Game extends Component {
     }
 
     return (
-      <View style={styles.gameStyle}>
+      <View>
         <Question
           question={this.props.currentQuestion}
           nextQuestion={this.props.nextQuestion}
