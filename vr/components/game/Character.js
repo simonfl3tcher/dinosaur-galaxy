@@ -7,8 +7,8 @@ export default class Character extends React.Component {
   props: {
     index: number,
     model: string,
-    pickAnswer: Function,
-  }
+    pickAnswer: Function
+  };
 
   constructor() {
     super();
@@ -21,7 +21,7 @@ export default class Character extends React.Component {
     Animated.spring(this.state.rotateValue, {
       toValue: 400,
       tension: 2,
-    }).start( () => this.props.pickAnswer() );
+    }).start(() => this.props.pickAnswer());
   }
 
   render() {
@@ -41,10 +41,12 @@ export default class Character extends React.Component {
             flexDirection: 'column',
           }}
           source={{
-            //obj: asset('characters/' + this.props.model + '.obj'),
-            //mtl: asset('characters/' + this.props.model + 'dino.mtl'),
-            obj: asset('characters/dino.obj'),
-            mtl: asset('characters/dino.mtl'),
+            obj: asset(
+              `characters/${this.props.model}/${this.props.model}.obj`
+            ),
+            mtl: asset(`characters/${this.props.model}/${this.props.model}.mtl`),
+            // obj: asset('characters/dino.obj'),
+            // mtl: asset('characters/dino.mtl'),
           }}
         />
       </VrButton>

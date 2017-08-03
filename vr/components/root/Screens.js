@@ -7,13 +7,13 @@ import CompletedIt from '../CompletedIt';
 import GameOver from '../GameOver';
 
 const Screens = ({ currentScreen }) => {
-  switch(currentScreen) {
+  switch (currentScreen) {
     case 'game':
       return <Game />;
     case 'gameover':
       return <GameOver />;
     case 'completed':
-      return <CompletedIt />
+      return <GameOver />;
     case 'start':
       return <StartGame />;
     default:
@@ -24,6 +24,9 @@ const Screens = ({ currentScreen }) => {
 
 Screens.propTypes = {
   currentScreen: PropTypes.string,
-}
+};
 
-export default connect(state => ({ currentScreen: state.screens.currentScreen }), {})(Screens);
+export default connect(
+  state => ({ currentScreen: state.screens.currentScreen }),
+  {}
+)(Screens);

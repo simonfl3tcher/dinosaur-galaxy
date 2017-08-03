@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Text, View, VrButton, asset, Model} from 'react-vr';
+import { Text, View, VrButton, asset, Model } from 'react-vr';
 import styles from '../styles/main';
 import { startNewGame } from '../actions';
 
@@ -12,7 +12,7 @@ class StartGame extends Component {
 
   render() {
     return (
-      <View style={styles.gameStyle}>
+      <View>
         <Model
           style={{
             transform: [{ translate: [0, 1, -4] }, { scale: 0.03 }],
@@ -47,5 +47,4 @@ class StartGame extends Component {
   }
 }
 
-export default connect(
-  null, { startNewGame })(StartGame);
+export default connect(null, { startNewGame })(StartGame);

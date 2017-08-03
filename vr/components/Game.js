@@ -19,24 +19,26 @@ class Game extends Component {
   }
 
   render() {
-    if(!this.props.currentQuestion) {
+    if (!this.props.currentQuestion) {
       return <Text style={styles.text}>Loading</Text>;
     }
 
     return (
       <View style={styles.gameStyle}>
-        <Text style={styles.text}>VRSarus!</Text>
-        <Text style={styles.text}>
-          Current Score: {this.props.score}
-        </Text>
-        <Question question={this.props.currentQuestion} pickAnswer={this.props.pickAnswer} />
+        <Question
+          question={this.props.currentQuestion}
+          pickAnswer={this.props.pickAnswer}
+        />
       </View>
     );
   }
 }
 
-export default connect(state => ({
-  score: state.game.score,
-  outstandingQuestions: state.game.outstandingQuestions,
-  currentQuestion: state.game.currentQuestion,
-}), { pickAnswer, loadQuestions })(Game);
+export default connect(
+  state => ({
+    score: state.game.score,
+    outstandingQuestions: state.game.outstandingQuestions,
+    currentQuestion: state.game.currentQuestion,
+  }),
+  { pickAnswer, loadQuestions }
+)(Game);
