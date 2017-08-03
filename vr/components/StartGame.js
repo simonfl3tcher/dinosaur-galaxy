@@ -21,6 +21,7 @@ class StartGame extends Component {
             alignItems: 'center',
             flexDirection: 'column',
           }}
+          lit={true}
           source={{
             obj: asset('welcome/welcome.obj'),
             mtl: asset('welcome/welcome.mtl'),
@@ -36,6 +37,7 @@ class StartGame extends Component {
               alignItems: 'center',
               flexDirection: 'column',
             }}
+            lit={true}
             source={{
               obj: asset('start/start.obj'),
               mtl: asset('start/start.mtl'),

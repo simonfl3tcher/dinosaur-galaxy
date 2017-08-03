@@ -26,8 +26,9 @@ export default class Question extends Component {
         })}
         <Model
           style={{
-            transform: [{ translate: [1, 0, -5] }, { scale: 0.02 }],
+            transform: [{ translate: [2, 0, -5] }, { scale: 0.02 }],
           }}
+          lit={true}
           source={{
             obj: asset(`characters/dino-q${this.props.question.id}.obj`),
             mtl: asset(`characters/dino-q${this.props.question.id}.mtl`),

@@ -17,6 +17,7 @@ const Star = () => {
           { scale: 0.05 },
         ],
       }}
+      lit={true}
       source={{
         obj: asset('star/star.obj'),
         mtl: asset('star/star.mtl'),
@@ -25,13 +26,15 @@ const Star = () => {
   );
 };
 
-const Stars = ({children}) => {
-  return <View style={styles.welcomeScreen}>
-    {map(range(0, 500), (value: number, index: number) =>
-      <Star key={index} />
-    )}
-    {children}
-  </View>;
+const Stars = ({ children }) => {
+  return (
+    <View style={styles.welcomeScreen}>
+      {map(range(0, 500), (value: number, index: number) =>
+        <Star key={index} />
+      )}
+      {children}
+    </View>
+  );
 };
 
 Stars.propTypes = {

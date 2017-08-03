@@ -30,7 +30,13 @@ export default class Character extends React.Component {
         <AnimatedModel
           style={{
             transform: [
-              { translate: [this.props.index - 1, Math.abs(this.props.index - 3), -6] },
+              {
+                translate: [
+                  this.props.index - 1,
+                  Math.abs(this.props.index - 3),
+                  -6,
+                ],
+              },
               { scale: 0.03 },
               { rotateY: this.state.rotateValue },
               { rotateX: 0 },
@@ -40,6 +46,7 @@ export default class Character extends React.Component {
             alignItems: 'center',
             flexDirection: 'column',
           }}
+          lit={true}
           source={{
             obj: asset(
               `characters/${this.props.model}/${this.props.model}.obj`
