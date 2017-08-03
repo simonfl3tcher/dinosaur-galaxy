@@ -12,27 +12,28 @@ export const loadQuestions = () => {
     type: 'QUESTIONS_LOADED',
     questions: questions,
   };
-}
+};
 
-export const pickAnswer = (answer) => (dispatch, getState) => {
+export const pickAnswer = answer => (dispatch, getState) => {
   const question = getState().game.currentQuestion;
   const outstandingQuestions = getState().game.outstandingQuestions;
 
-  if(checkAnswer(question, answer)) {
-    if(outstandingQuestions.length > 0) {
+  if (checkAnswer(question, answer)) {
+    if (outstandingQuestions.length > 0) {
       dispatch(correctAnswer());
       dispatch(nextQuestion());
     } else {
       dispatch(completedIt());
     }
   } else {
-    dispatch(wrongAnswer());
+    // Move on to next question
+    dispatch(nextQuestion());
   }
 };
 
 const checkAnswer = (question, answer) => {
   return answer == question.correct_answer;
-}
+};
 
 export const correctAnswer = () => {
   return {
@@ -49,11 +50,5 @@ export const nextQuestion = () => {
 export const completedIt = () => {
   return {
     type: 'COMPLETED_IT',
-  };
-};
-
-export const wrongAnswer = () => {
-  return {
-    type: 'WRONG_ANSWER',
   };
 };

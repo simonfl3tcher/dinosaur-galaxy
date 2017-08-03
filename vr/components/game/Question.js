@@ -26,7 +26,7 @@ export default class Question extends Component {
         })}
         <Model
           style={{
-            transform: [{ translate: [2, 0, -5] }, { scale: 0.02 }],
+            transform: [{ translate: [2, -1.5, -5] }, { scale: 0.02 }],
           }}
           lit={true}
           source={{

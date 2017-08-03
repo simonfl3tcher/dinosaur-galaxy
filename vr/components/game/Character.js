@@ -19,7 +19,7 @@ export default class Character extends React.Component {
 
   pickAnswer() {
     Animated.spring(this.state.rotateValue, {
-      toValue: 400,
+      toValue: 360,
       tension: 2,
     }).start(() => this.props.pickAnswer());
   }

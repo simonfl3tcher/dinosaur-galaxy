@@ -13,12 +13,12 @@ const game = (state = defaultState, action) => {
         ...state,
         currentQuestion: action.questions[0],
         outstandingQuestions: action.questions.slice(1),
-      }
+      };
     case 'CORRECT_ANSWER':
       return {
         ...state,
         score: state.score + 1,
-      }
+      };
     case 'NEXT_QUESTION':
       return {
         ...state,
