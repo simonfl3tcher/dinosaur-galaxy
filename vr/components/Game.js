@@ -3,12 +3,13 @@ import { connect } from 'react-redux';
 import { Text, View } from 'react-vr';
 import Question from './game/Question';
 import styles from '../styles/main';
-import { loadQuestions, pickAnswer } from '../actions';
+import { loadQuestions, pickAnswer, nextQuestion } from '../actions';
 
 class Game extends Component {
   props: {
     pickAnswer: Function,
     loadQuestions: Function,
+    nextQuestion: Function,
     currentQuestion: Object,
     score: number,
     seconds: number
@@ -27,6 +28,7 @@ class Game extends Component {
       <View style={styles.gameStyle}>
         <Question
           question={this.props.currentQuestion}
+          nextQuestion={this.props.nextQuestion}
           pickAnswer={this.props.pickAnswer}
         />
       </View>
@@ -40,5 +42,5 @@ export default connect(
     outstandingQuestions: state.game.outstandingQuestions,
     currentQuestion: state.game.currentQuestion,
   }),
-  { pickAnswer, loadQuestions }
+  { pickAnswer, loadQuestions, nextQuestion }
 )(Game);

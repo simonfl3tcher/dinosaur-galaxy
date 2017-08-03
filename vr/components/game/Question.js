@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
-import { Text, View, Model, asset } from 'react-vr';
+import { View, Model, VrButton, asset } from 'react-vr';
 import { map } from 'lodash';
-import styles from '../../styles/main';
 import Character from './Character';
 
 export default class Question extends Component {
   props: {
     question: Object,
-    pickAnswer: Function
+    pickAnswer: Function,
+    nextQuestion: Function
   };
+
+  nextQuestion() {
+    this.props.nextQuestion();
+  }
 
   render() {
     let i = 1;
@@ -34,6 +38,18 @@ export default class Question extends Component {
             mtl: asset(`characters/dino-q${this.props.question.id}.mtl`),
           }}
         />
+        <VrButton onClick={() => this.nextQuestion()}>
+          <Model
+            style={{
+              transform: [{ translate: [2, -2, -5] }, { scale: 0.01 }],
+            }}
+            lit={true}
+            source={{
+              obj: asset('next/next.obj'),
+              mtl: asset('next/next.mtl'),
+            }}
+          />
+        </VrButton>
       </View>
     );
   }
